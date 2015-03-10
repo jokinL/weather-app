@@ -1,4 +1,6 @@
 $(function(){
+	var API_WEATHER_KEY = "80114c7878f599621184a687c500a12";
+	var API_WEATHER_URL = "api.openweathermap.org/data/2.5/weather?PPID="+API_WEATHER_KEY+"&";
 	// Comprobar si el navegador soporta localización
 	if(navigator.geolocation){
 		// Obtener geolocalización
@@ -21,5 +23,10 @@ $(function(){
 		var lat=position.coords.latitude;
 		var lon=position.coords.longitude;
 		console.log("Tu posición es:"+lat+";"+lon);
+		$.getJSON(API_WEATHER_URL+"lat="+lat+"&lon="+lon, getCurretWeather);
+
+	}
+	function getCurrentWeather(data){
+		
 	}
 });
